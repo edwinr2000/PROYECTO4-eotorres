@@ -62,9 +62,4 @@ def inject_user():
 
 @app.route('/')
 def index():
-    try:
-        app.logger.debug("Intentando renderizar index.html")
-        return render_template('index.html')
-    except Exception as e:
-        app.logger.error(f"Error al renderizar index.html: {e}")
-        return "Error al cargar la página de inicio.", 500
+    return render_template('index.html')
