@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Administrador</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Bienvenido administrador a la heladería</h1>
+
+        <!-- Enlace para cerrar sesión -->
+        <a href="{{ url_for('auth.logout') }}" class="btn btn-danger btn-sm mb-3">Cerrar Sesión</a>
+
+        <h2>Productos</h2>
+        {% if products %}
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Calorías</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.calories }}</td>
+                    <td>
+                        <a href="{{ url_for('product.get_product_by_id', product_id=product.id) }}" class="btn btn-info btn-sm">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No hay productos disponibles.</p>
+        {% endif %}
+
+        <h2>Ingredientes</h2>
+        {% if ingredients %}
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Costo</th>
+                    <th>Calorías</th>
+                    <th>Saludable</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ingredient in ingredients %}
+                <tr>
+                    <td>{{ ingredient.id }}</td>
+                    <td>{{ ingredient.name }}</td>
+                    <td>{{ ingredient.cost }}</td>
+                    <td>{{ ingredient.calories }}</td>
+                    <td>{{ 'Sí' if ingredient.is_healthy else 'No' }}</td>
+                    <td>
+                        <a href="{{ url_for('ingredient.get_ingredient_by_id', ingredient_id=ingredient.id) }}" class="btn btn-info btn-sm">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No hay ingredientes disponibles.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
