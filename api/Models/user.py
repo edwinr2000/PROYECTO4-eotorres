@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from flask_login import UserMixin
-from .database import Base
+from api.Models.database import Base
 
 class User(UserMixin, Base):
     __tablename__ = 'users'

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
-from Models.database import session
-from Models.product import Product
+from api.Models.database import session
+from api.Models.product import Product
 
 product_bp = Blueprint('product', __name__, url_prefix='/api/products')
 
