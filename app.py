@@ -10,7 +10,7 @@ from api.Models.user import User
 app = Flask(__name__)
 
 # Clave secreta para manejo de sesiones
-app.secret_key = os.environ.get("SECRET_KEY", "clave_super_segura_para_desarrollo")
+app.secret_key = os.environ.get("clave_super_segura_para_desarrollo")
 
 # Configuración de Flask-Login
 login_manager = LoginManager()
