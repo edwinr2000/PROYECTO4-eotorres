@@ -1,4 +1,4 @@
-from app import app  # Importa tu instancia de Flask desde app.py
+from api.app import app  # Importa tu instancia de Flask desde app.py
 import requests
 
 def test_routes():
