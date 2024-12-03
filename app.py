@@ -68,6 +68,3 @@ def index():
     except Exception as e:
         app.logger.error(f"Error al renderizar index.html: {e}")
         return "Error al cargar la página de inicio.", 500
-
-if __name__ == '__main__':
-    app.run(debug=True)
