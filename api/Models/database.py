@@ -2,13 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DB_USER = "root"
-DB_PASSWORD = "fuwbYNrLduLeLciYpeMtjdbPmPMkAzoc"
-DB_HOST = "autorack.proxy.rlwy.net"
-DB_PORT = "40107"
-DB_NAME = "railway"
+DB_URL = "mysql+mysqlconnector://root:fuwbYNrLduLeLciYpeMtjdbPmPMkAzoc@autorack.proxy.rlwy.net:40107/railway"
 
-engine = create_engine(f'mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}')
+engine = create_engine(DB_URL)
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
