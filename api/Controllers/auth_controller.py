@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from api.Models.database import session
 from api.Models.user import User
 
-auth_bp = Blueprint('auth', __name__, template_folder='../Templates')
+auth_bp = Blueprint('auth', __name__, template_folder='../templates')
 
 # Ruta para la página inicial
 @auth_bp.route('/')
