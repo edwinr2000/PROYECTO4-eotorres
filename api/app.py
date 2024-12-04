@@ -16,6 +16,7 @@ app.secret_key = "clave_super_segura_para_desarrollo"
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'auth.login'
+login_manager.login_message = "Por favor inicia sesión para acceder a esta página."
 
 @login_manager.user_loader
 def load_user(user_id):
