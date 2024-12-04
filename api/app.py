@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_login import LoginManager
 from api.Controllers.product_controller import product_bp
 from api.Controllers.ingredient_controller import ingredient_bp
@@ -26,10 +26,9 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(product_bp)
 app.register_blueprint(ingredient_bp)
 
-# Ruta de prueba
 @app.route('/')
-def home():
-    return "¡Servidor funcionando!"
+def index():
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
